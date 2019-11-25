@@ -14,19 +14,19 @@ Python3 installed is necessary to run the code. We assume you have it on your ma
 pip install -r requirements.txt
 ```
 
-In order to run isort use the command:
+In order to run isort use the following command:
 
 ```
-isort isort mypythonfile.py mypythonfile2.py
+isort mypythonfile.py mypythonfile2.py
 ```
 
-In order to run black use the command:
+In order to run black use the following command:
 
 ```
 black {source_file_or_directory}
 ```
 
-Where cron_expression_parser.py is an example of the name of the file
+Where cron_expression_parser.py is the example of the name of the file
 
 ### Running the code
 
@@ -35,7 +35,7 @@ In order to run the code clone the project, and run the following command form t
 ```
 python cron_expression_parser.py '*/15 0 1,4 5-6 1,3 usr/bin/find' 
 ```
-Where '*/15 0 1,4 5-6 1,3 usr/bin/find' is an example of the input cron string
+Where '*/15 0 1,4 5-6 1,3 usr/bin/find' is the example of the input cron string
 
 If cron string is not provided or the format of the cron string is wrong an error will be raised
 
