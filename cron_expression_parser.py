@@ -7,6 +7,10 @@ from exception import CronExpressionParserError
 
 
 class CronExpressionParser:
+    """
+    Class to parse cron string and expand each field to show the times at which it will run
+    """
+
     def __init__(self, command):
         self.cron_command = command
         self.param_names = ["minute", "hour", "day of month", "month", "day of week"]
@@ -20,6 +24,9 @@ class CronExpressionParser:
         self.output_name_length = 14
 
     def get_range(self, param, value):
+        """
+        Function takes cron parameter with its value and returns the time range at which it will run
+        """
         digits = re.findall(r"\d+", value)
         range_for_value = self.param_ranges[param]
         if not all([int(item) in range_for_value for item in digits]):
@@ -46,11 +53,18 @@ class CronExpressionParser:
             )
 
     def print_result(self, result):
+        """
+        Function prints result to standard output
+        """
         for key, value in result.items():
             whitespaces = " " * (self.output_name_length - len(key))
             sys.stdout.write("{}{}{}\n".format(key, whitespaces, value))
 
     def parse_cron_command(self):
+        """
+        Function converts cron string to dict in which key is the name of the parameter
+        and the value is the value from the input string
+        """
         *params, command = self.cron_command.split()
 
         if len(params) != 5:

@@ -6,7 +6,14 @@ from exception import CronExpressionParserError
 
 
 class TestCronExpressionParser(unittest.TestCase):
+    """
+    Class to test CronExpressionParser
+    """
+
     def test_parse_cron_command_ok(self):
+        """
+        Test checks different correct variants of input parameters
+        """
         cron_command = "*/15 0 1,15 * 1-5 /usr/bin/find"
         cron_expression_parser = CronExpressionParser(cron_command)
         result = cron_expression_parser.parse_cron_command()
@@ -21,10 +28,13 @@ class TestCronExpressionParser(unittest.TestCase):
         self.assertDictEqual(result, true_result)
 
     def test_parse_errors(self):
+        """
+        Test checks basic parsing error cases
+        """
         wrong_format_commands = [
-            "*/15 0 1,15 * 1-8 /usr/bin/find",
-            "*/15 0 1,15 * 1-5",
-            "*/15 0 1,15 * 1&5 /usr/bin/find",
+            "*/15 0 1,15 * 1-8 /usr/bin/find",  # wrong day of week range
+            "*/15 0 1,15 * 1-5",  # wrong number of arguments
+            "*/15 0 1,15 * 1&5 /usr/bin/find",  # wrong symbols in day of week parameter
         ]
         for command in wrong_format_commands:
             cron_expression_parser = CronExpressionParser(command)
