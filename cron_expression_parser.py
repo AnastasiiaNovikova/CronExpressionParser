@@ -63,7 +63,7 @@ class CronExpressionParser:
     def parse_cron_command(self):
         """
         Function converts cron string to dict in which key is the name of the parameter
-        and the value is the value from the input string
+        and value is the value from the input string
         """
         *params, command = self.cron_command.split()
 

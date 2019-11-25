@@ -30,7 +30,7 @@ Where cron_expression_parser.py is an example of the name of the file
 
 ### Running the code
 
-In order to run the code go to the project folder and run the command
+In order to run the code clone the project, and run the following command form the project folder
 
 ```
 python cron_expression_parser.py '*/15 0 1,4 5-6 1,3 usr/bin/find' 
@@ -47,7 +47,7 @@ For "day of month" parameter we assume that there are 31 days in each month
 
 ## Running the tests
 
-In order to run the tests use the following command
+In order to run the tests use the following command:
 
 ```
 python test.py
